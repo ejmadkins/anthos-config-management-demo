@@ -16,4 +16,4 @@ spec:
       - name: t-rex
         image: gcr.io/ejmadkins-anthos-customer-demo/t-rex-runner
         ports:
-        - containerPort: 80
+        - containerPort: 5000
