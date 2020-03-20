@@ -13,7 +13,7 @@ spec:
         app: payments-app
     spec:
       containers:
-      - name: t-rex-runner
+      - name: t-rex
         image: gcr.io/ejmadkins-anthos-customer-demo/t-rex-runner
         ports:
         - containerPort: 5000
