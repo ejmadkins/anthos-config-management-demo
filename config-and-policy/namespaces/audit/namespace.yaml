@@ -2,3 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: audit
+  annotations:
+    configmanagement.gke.io/cluster-selector: selector-prod
+  labels:
+    cost-center: t-rex-app.anthos-config-management-demo.com
