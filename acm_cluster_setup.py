@@ -19,14 +19,14 @@ def set_cluster_name(cluster_names):
           namespace: config-management-system
         spec:
           clusterName: {}
-        git:
+          git:
             syncRepo: git@github.com:ejmadkins/anthos-config-management-demo.git
             syncBranch: master
             secretType: ssh
             policyDir: "config-and-policy"
-        configConnector:
+          configConnector:
             enabled: true
-        policyController:
+          policyController:
             enabled: true""".format(cluster)
         subprocess.call("kubectl config use-context {}".format(cluster), shell=True)
         subprocess.call("kubectl apply -f - <<EOF{}\nEOF".format(config_management), shell=True)
