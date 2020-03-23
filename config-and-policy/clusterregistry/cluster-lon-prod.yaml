@@ -1,6 +1,6 @@
 kind: Cluster
 apiVersion: clusterregistry.k8s.io/v1alpha1
 metadata:
-  name: lon-prod-cluster
+  name: ejmadkins-anthos-customer-demo_us-east4-a_lon-prod
   labels:
     environment: prod

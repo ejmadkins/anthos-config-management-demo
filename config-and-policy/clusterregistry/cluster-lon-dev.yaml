@@ -1,7 +1,6 @@
 kind: Cluster
 apiVersion: clusterregistry.k8s.io/v1alpha1
 metadata:
-  name: lon-dev-cluster
+  name: ejmadkins-anthos-customer-demo_us-east4-a_lon-dev
   labels:
-    location: london
     environment: dev
