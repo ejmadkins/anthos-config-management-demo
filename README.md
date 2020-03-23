@@ -5,6 +5,34 @@ This is a short demo of Anthos Config Management.  It covers configuring followi
 * Namespace Selectors
 * Namespace labels and Pod Security using the Policy Controller
 
+```
+config-and-policy
+├── cluster
+│   ├── constraint-namespace-label.yaml
+│   ├── namespace-reader-clusterrole.yaml
+│   └── namespace-reader-clusterrolebinding.yaml
+├── clusterregistry
+│   ├── cluster-lon-dev.yaml
+│   ├── cluster-lon-prod.yaml
+│   ├── cluster-ny-prod.yaml
+│   ├── selector-lon.yaml
+│   ├── selector-ny.yaml
+│   └── selector-prod.yaml
+├── namespaces
+│   ├── audit
+│   │   └── namespace.yaml
+│   ├── istio-system
+│   │   └── namespace.yaml
+│   └── t-rex-app
+│       ├── deployment.yaml
+│       ├── ingress.yaml
+│       ├── namespace.yaml
+│       └── node-port.yaml
+└── system
+    ├── README.md
+    └── repo.yaml
+```
+
 ## Prereqs
 This demo assumes that the following prereqs are met:
 * Nomos is installed
@@ -49,3 +77,19 @@ python command_runner.py -c "kubectl get ns"
 ## Namespace Selectors
 
 ## Namespace labels and Pod Security using the Policy Controller
+The `istio-system` namespace should be deployed across all clusters, there is a namespace label constraint in place that mandates a cost centre label much be defined to each namespace.
+
+Verify that the namespace has not been deployed to clusters:
+```
+python command_runner.py -c "kubectl get ns"
+```
+
+Edit the istio-system-namespace.yaml file and uncomment the last two lines
+```
+vi config-and-policy/namespaces/istio-system-namespace.yaml
+```
+
+Check again to make sure that the namespace is now present:
+```
+python command_runner.py -c "kubectl get ns"
+```
