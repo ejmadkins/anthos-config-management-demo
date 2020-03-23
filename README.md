@@ -31,7 +31,19 @@ python acm-setup/acm_cluster_setup.py
 ## Cluster Selectors
 Check out the labels attached to clusters and the ClusterSelector:
 ```
-cat clusterregistry/config-and-policy/cluster-lon-prod.yaml && cat clusterregistry/config-and-policy/cluster-lon-dev.yaml
+bat config-and-policy/clusterregistry/cluster-lon-prod.yaml && bat config-and-policy/clusterregistry/cluster-lon-dev.yaml
+```
+
+For production clusters we need to ensure that the audit team have their own namespace where they can deploy their workloads.
+Verify the audit namespace annotation:
+```
+bat config-and-policy/namespaces/audit/namespace.yaml
+```
+
+The audit namespace should only be present on the lon-prod cluster, we can check this by verifying the namespaces on each cluster:
+
+```
+python command_runner.py -c "kubectl get ns"
 ```
 
 ## Namespace Selectors
