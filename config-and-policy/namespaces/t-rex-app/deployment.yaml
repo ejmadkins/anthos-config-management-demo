@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payments-app
+  name: t-rex-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: payments-app
+      app: t-rex-app
   template:
     metadata:
       labels:
-        app: payments-app
+        app: t-rex-app
     spec:
       containers:
       - name: t-rex-runner

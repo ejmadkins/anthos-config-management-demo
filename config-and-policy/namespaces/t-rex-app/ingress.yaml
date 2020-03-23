@@ -1,15 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: payments-app-ingress
+  name: t-rex-app-ingress
 spec:
   backend:
-    serviceName: payments-app-service
+    serviceName: t-rex-app-service
     servicePort: 60001
   rules:
   - http:
       paths:
       - path: /
         backend:
-          serviceName: payments-app-service
+          serviceName: t-rex-app-service
           servicePort: 60001
