@@ -8,15 +8,13 @@ This is a short demo of Anthos Config Management.  It covers configuring followi
 ```
 config-and-policy
 ├── cluster
-│   ├── constraint-namespace-label.yaml
-│   ├── namespace-reader-clusterrole.yaml
-│   └── namespace-reader-clusterrolebinding.yaml
+│   ├── constraint-namespace-cost-centre.yaml
+│   ├── constraint-privilege-escalation.yaml
+│   ├── pod-reader-clusterrole.yaml
+│   └── pod-reader-clusterrolebinding.yaml
 ├── clusterregistry
 │   ├── cluster-lon-dev.yaml
 │   ├── cluster-lon-prod.yaml
-│   ├── cluster-ny-prod.yaml
-│   ├── selector-lon.yaml
-│   ├── selector-ny.yaml
 │   └── selector-prod.yaml
 ├── namespaces
 │   ├── audit
@@ -27,7 +25,8 @@ config-and-policy
 │       ├── deployment.yaml
 │       ├── ingress.yaml
 │       ├── namespace.yaml
-│       └── node-port.yaml
+│       ├── node-port.yaml
+│       └── privileged-nginx.yaml
 └── system
     ├── README.md
     └── repo.yaml
@@ -35,7 +34,7 @@ config-and-policy
 
 ## Prereqs
 This demo assumes that the following prereqs are met:
-* Nomos is installed
+* [Nomos](https://cloud.google.com/anthos-config-management/docs/how-to/nomos-command) is installed
 
 ## Anthos Config Management Setup
 Follow these steps to get ACM on your clusters.
@@ -54,7 +53,7 @@ Execute acm_cluster_setup.py file to configure the operator:
 python acm-setup/acm_cluster_setup.py
 ```
 ## Kubernetes Objects on Multiple Clusters
-
+Verify that the objects configured in the git repo are deployed into the cluster.
 
 ## Cluster Selectors
 Check out the labels attached to clusters and the ClusterSelector:
@@ -76,7 +75,7 @@ python command_runner.py -c "kubectl get ns"
 
 ## Namespace Selectors
 
-## Namespace labels and Pod Security using the Policy Controller
+## Namespace labels using the Policy Controller
 The `istio-system` namespace should be deployed across all clusters, there is a namespace label constraint in place that mandates a cost centre label much be defined to each namespace.
 
 Verify that the namespace has not been deployed to clusters:
@@ -93,3 +92,10 @@ Check again to make sure that the namespace is now present:
 ```
 python command_runner.py -c "kubectl get ns"
 ```
+
+## Pod security using the Policy Controller
+The NGINX pod needs to be deployed in the t-rex-app namespace.
+
+The NGINX container has been configured as a privilged container, due to the constraint in place to deny privileged containers from running the pod is not deployed.
+
+Change the NGINX container privileged to false.
