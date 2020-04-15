@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: t-rex-app
   labels:
-    cost-center: t-rex-app.anthos-config-management-demo.com
+    cost-center: trexapp.anthos-config-management-demo.com
