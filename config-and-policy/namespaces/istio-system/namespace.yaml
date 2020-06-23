@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: istio-system
   labels:
-    cost-center: audit.anthos-config-management-demo.com
+    cost-center: istio.anthos-config-management-demo.com
