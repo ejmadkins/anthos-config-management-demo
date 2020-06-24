@@ -1,6 +1,0 @@
-kind: Cluster
-apiVersion: clusterregistry.k8s.io/v1alpha1
-metadata:
-  name: gke_ejmadkins-anthos-customer-demo_europe-west2-a_lon-dev
-  labels:
-    environment: dev
