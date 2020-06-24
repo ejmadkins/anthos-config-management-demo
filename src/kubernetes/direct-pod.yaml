@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: priv-escalation
+  name: direct-pod
   labels:
-    app: priv-escalation
+    app: direct-pod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: priv-escalation
+      app: direct-pod
   template:
     metadata:
       labels:
-        app: priv-escalation
+        app: direct-pod
+      # annotations:
+      #   alpha.image-policy.k8s.io/break-glass: "true"
     spec:
       containers:
-      - name: priv-escalation
+      - name: direct-pod
         image: gcr.io/anthos-customer-demos/hello-app:35f08e2
         ports:
         - containerPort: 8080
@@ -26,3 +28,4 @@ spec:
         securityContext:
           runAsUser: 2000
           allowPrivilegeEscalation: false
+          privileged: false
