@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: t-rex-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: t-rex-app
+  template:
+    metadata:
+      labels:
+        app: t-rex-app
+    spec:
+      containers:
+      - name: t-rex-runner
+        image: gcr.io/ejmadkins-anthos-customer-demo/t-rex-runner
+        ports:
+        - containerPort: 5000
