@@ -1,6 +1,6 @@
 kind: Cluster
 apiVersion: clusterregistry.k8s.io/v1alpha1
 metadata:
-  name: gke_acm-demos_europe-west2_lon-prod
+  name: gke_acm-demos_europe-west2_lon_prod
   labels:
     environment: prod
