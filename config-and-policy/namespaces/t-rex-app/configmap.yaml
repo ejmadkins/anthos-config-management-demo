@@ -1,0 +1,17 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: cloud-env-configmap
+  annotations:
+    configmanagement.gke.io/cluster-selector: selector-aws
+data:
+  environment: AWS
+---
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: cloud-env-configmap
+  annotations:
+    configmanagement.gke.io/cluster-selector: selector-gcp
+data:
+  environment: GCP

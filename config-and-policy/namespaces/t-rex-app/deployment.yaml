@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: t-rex-app
-  namespace: t-rex-app
   labels:
     app: t-rex-app
 spec:
@@ -17,9 +16,12 @@ spec:
     spec:
       containers:
       - name: t-rex-app
-        image: gcr.io/acm-demos/t-rex-app:1.0.0
+        image: ejmadkins/t-rex-runner:1.0.0
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: cloud-env-configmap
         resources:
           limits:
             cpu: "100m"

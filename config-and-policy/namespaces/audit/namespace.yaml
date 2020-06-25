@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   name: audit
   annotations:
-    configmanagement.gke.io/cluster-selector: selector-prod
+    configmanagement.gke.io/cluster-selector: selector-gcp
   labels:
     cost-center: audit.anthos-config-management-demo.com
