@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: test
   labels:
-    cost-center: testy.anthos-config-management-demo.com
+    cost-center: test.anthos-config-management-demo.com
