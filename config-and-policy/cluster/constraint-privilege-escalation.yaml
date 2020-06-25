@@ -1,7 +1,7 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sPSPPrivilegedContainer
+kind: K8sPSPAllowPrivilegeEscalationContainer
 metadata:
-  name: psp-privileged-container
+  name: psp-privilege-escalation
 spec:
   match:
     kinds:
