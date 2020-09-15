@@ -4,3 +4,4 @@ metadata:
   name: kube-system
   labels:
     k8s-namespace: kube-system
+    cost-center: kube-system.anthos-config-management-demo.com
