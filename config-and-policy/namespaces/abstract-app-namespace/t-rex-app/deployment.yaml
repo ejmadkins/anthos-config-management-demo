@@ -24,8 +24,8 @@ spec:
             name: cloud-env-configmap
         resources:
           limits:
-            cpu: "200m"
+            cpu: "500m"
             memory: "1Gi"
         securityContext:
           runAsUser: 2000
-          allowPrivilegeEscalation: false
+          allowPrivilegeEscalation: true
