@@ -5,7 +5,9 @@ metadata:
 spec:
   policyTypes:
   - Ingress
-  podSelector: k8s-app: kube-dns
+  podSelector:
+    matchLabels:
+      app: t-rex-app
   ingress:
   - from:
     - ipBlock:
