@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: configconnector-operator-monitoring
-  annotations:
-    configsync.gke.io/cluster-name-selector: selector-gcp
+  name: config-management-monitoring
   labels:
+    cost-center: config-mon.anthos-config-management-demo.com
     admission.gatekeeper.sh/ignore: "true"
