@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-public
+  labels:
+    cost-center: kubepublic.anthos-config-management-demo.com
+    admission.gatekeeper.sh/ignore: "true"
